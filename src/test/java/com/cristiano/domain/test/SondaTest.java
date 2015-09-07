@@ -1,6 +1,6 @@
 package com.cristiano.domain.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class SondaTest {
 	private final int H = 10;
 	private final int V = 10;
 	private final Direction DIR = Direction.E;
-
+	
 	@Before
 	public void init() {
 		malha = Malha.build(V, H);

@@ -2,10 +2,8 @@ package com.cristiano.app;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.cristiano"})
 public class Application extends SpringBootServletInitializer {
 	
 	@Override

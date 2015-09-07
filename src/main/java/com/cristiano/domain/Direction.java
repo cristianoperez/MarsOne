@@ -13,7 +13,7 @@ public enum Direction {
 			int horizontal = sonda.getHorizontal();
 			int vertical = sonda.getVertical() + 1;
 			if (vertical > sonda.getMalhaVerticalSize()) {
-				throw new InvalidPositionException(new StringBuilder("Posição HORIZONTAL: ").append(horizontal).append(" não existe na malha").toString());
+				throw new InvalidPositionException(new StringBuilder("Posição HORIZONTAL inválida, posição ").append(vertical).append(" não existe na malha").toString());
 			}
 			return sonda.moveTo(horizontal, vertical);
 		}
@@ -24,7 +24,7 @@ public enum Direction {
 			int horizontal = sonda.getHorizontal();
 			int vertical = sonda.getVertical() - 1;
 			if(vertical < 0){
-				throw new InvalidPositionException(new StringBuilder("Posição HORIZONTAL: ").append(horizontal).append(" não existe na malha").toString());
+				throw new InvalidPositionException(new StringBuilder("Posição HORIZONTAL inválida, posição ").append(vertical).append(" não existe na malha").toString());
 			}
 			return sonda.moveTo(horizontal, vertical);
 		}
@@ -35,7 +35,7 @@ public enum Direction {
 			int horizontal = sonda.getHorizontal() + 1;
 			int vertical = sonda.getVertical();
 			if(horizontal > sonda.getMalhaHorizontalSize()){
-				throw new InvalidPositionException(new StringBuilder("Posição VERTICAL: ").append(vertical).append(" não existe na malha").toString());
+				throw new InvalidPositionException(new StringBuilder("Posição VERTICAL inválida, posição ").append(horizontal).append(" não existe na malha").toString());
 			}
 			
 			return sonda.moveTo(horizontal, vertical);
@@ -47,7 +47,7 @@ public enum Direction {
 			int horizontal = sonda.getHorizontal() - 1;
 			int vertical = sonda.getVertical();
 			if(horizontal < 0){
-				throw new InvalidPositionException(new StringBuilder("Posição VERTICAL: ").append(vertical).append(" não existe na malha").toString());
+				throw new InvalidPositionException(new StringBuilder("Posição VERTICAL inválida, posição ").append(horizontal).append(" não existe na malha").toString());
 			}
 			
 			return sonda.moveTo(horizontal, vertical);

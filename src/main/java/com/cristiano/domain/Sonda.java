@@ -1,9 +1,21 @@
 package com.cristiano.domain;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.NONE)
 public final class Sonda {
 
+	@XmlElement
 	private final int horizontal;
+	
+	@XmlElement
 	private final int vertical;
+	
+	@XmlElement
 	private final Direction direction;
 	private final Malha malha;
 
