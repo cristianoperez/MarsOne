@@ -2,13 +2,14 @@ package com.cristiano.domain;
 
 import java.util.List;
 
+import com.cristiano.exception.InvalidPositionException;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
 public enum Direction {
 	N {
 		@Override
-		public Sonda move(Sonda sonda) {
+		public Sonda move(Sonda sonda) throws InvalidPositionException {
 			int horizontal = sonda.getHorizontal();
 			int vertical = sonda.getVertical() + 1;
 			if (vertical > sonda.getMalhaVerticalSize()) {
@@ -19,7 +20,7 @@ public enum Direction {
 	},
 	S {
 		@Override
-		public Sonda move(Sonda sonda) {
+		public Sonda move(Sonda sonda) throws InvalidPositionException {
 			int horizontal = sonda.getHorizontal();
 			int vertical = sonda.getVertical() - 1;
 			if(vertical < 0){
@@ -30,7 +31,7 @@ public enum Direction {
 	},
 	E {
 		@Override
-		public Sonda move(Sonda sonda) {
+		public Sonda move(Sonda sonda) throws InvalidPositionException {
 			int horizontal = sonda.getHorizontal() + 1;
 			int vertical = sonda.getVertical();
 			if(horizontal > sonda.getMalhaHorizontalSize()){
@@ -42,7 +43,7 @@ public enum Direction {
 	},
 	W {
 		@Override
-		public Sonda move(Sonda sonda) {
+		public Sonda move(Sonda sonda) throws InvalidPositionException {
 			int horizontal = sonda.getHorizontal() - 1;
 			int vertical = sonda.getVertical();
 			if(horizontal < 0){
@@ -73,7 +74,7 @@ public enum Direction {
 		return direction;
 	}
 
-	public abstract Sonda move(Sonda sonda);
+	public abstract Sonda move(Sonda sonda) throws InvalidPositionException;
 
 	private static List<Direction> direcoesDisponiveis;
 

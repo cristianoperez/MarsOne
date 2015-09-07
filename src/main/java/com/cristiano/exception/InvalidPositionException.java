@@ -1,4 +1,4 @@
-package com.cristiano.domain;
+package com.cristiano.exception;
 
 public class InvalidPositionException extends RuntimeException {
 

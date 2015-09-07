@@ -2,16 +2,12 @@ package com.cristiano.domain;
 
 public final class Sonda {
 
-	private int horizontal;
-	private int vertical;
-	private Direction direction;
-	private Malha malha;
+	private final int horizontal;
+	private final int vertical;
+	private final Direction direction;
+	private final Malha malha;
 
-	private Sonda() {
-
-	}
-
-	public Sonda(Malha malha, int horizontal, int vertical, Direction direction) {
+	private Sonda(Malha malha, int horizontal, int vertical, Direction direction) {
 		this.horizontal = horizontal;
 		this.vertical = vertical;
 		this.direction = direction;
@@ -27,8 +23,6 @@ public final class Sonda {
 	 * @return {@link Sonda}
 	 */
 	public static Sonda land(Malha malha, int horizontal, int vertical, Direction apontadaPara) {
-		Sonda sonda = new Sonda();
-		sonda.malha = malha;
 		return new Sonda(malha, horizontal, vertical, apontadaPara);
 	}
 
@@ -99,6 +93,10 @@ public final class Sonda {
 
 	public Direction getDirection() {
 		return direction;
+	}
+
+	public Malha getMalha() {
+		return malha;
 	}
 
 }

@@ -5,10 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.cristiano.domain.Command;
 import com.cristiano.domain.Direction;
-import com.cristiano.domain.InvalidPositionException;
 import com.cristiano.domain.Malha;
 import com.cristiano.domain.Sonda;
+import com.cristiano.exception.InvalidPositionException;
 
 public class SondaTest {
 
@@ -95,5 +96,12 @@ public class SondaTest {
 		sonda = sonda.move(malha);
 
 		assertEquals(9, sonda.getHorizontal());
+	}
+	
+	@Test
+	public void commandL(){
+		Sonda sonda = Sonda.land(malha, H, V, Direction.W);
+		Command command = Command.M;
+		command.executar(sonda);
 	}
 }

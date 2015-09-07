@@ -1,13 +1,9 @@
 package com.cristiano.domain;
 
-public class Malha {
+public final class Malha {
 
-	private int horizontal;
-	private int vertical;
-
-	private Malha() {
-
-	}
+	private final int horizontal;
+	private final int vertical;
 
 	private Malha(int horizontal, int vertical) {
 		this.horizontal = horizontal;
