@@ -32,7 +32,7 @@ public final class Sonda {
 	 * @return
 	 */
 	public Direction getLeftDirection() {
-		return direction.getL(this);
+		return direction.getLeft(this);
 	}
 
 	/**
@@ -41,16 +41,7 @@ public final class Sonda {
 	 * @return
 	 */
 	public Direction getRightDirection() {
-		return direction.getR(this);
-	}
-
-	/**
-	 * Movimenta para a unidade a frente que a sonda esta apontada
-	 * 
-	 * @return {@link Sonda}
-	 */
-	public Sonda move(Malha malha) {
-		return direction.move(this);
+		return direction.getRight(this);
 	}
 
 	/**
@@ -62,6 +53,15 @@ public final class Sonda {
 	 */
 	public Sonda changeDirection(Direction direction) {
 		return new Sonda(malha, horizontal, vertical, direction);
+	}
+
+	/**
+	 * Movimenta para a unidade a frente que a sonda esta apontada
+	 * 
+	 * @return {@link Sonda}
+	 */
+	public Sonda move() {
+		return direction.move(this);
 	}
 
 	/**
@@ -93,10 +93,6 @@ public final class Sonda {
 
 	public Direction getDirection() {
 		return direction;
-	}
-
-	public Malha getMalha() {
-		return malha;
 	}
 
 }

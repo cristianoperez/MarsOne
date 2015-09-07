@@ -54,7 +54,7 @@ public enum Direction {
 		}
 	};
 
-	public Direction getL(Sonda sonda) {
+	public Direction getLeft(Sonda sonda) {
 		Direction direction = null;
 		if (direcoesDisponiveis.indexOf(this) - 1 == -1) {
 			direction = direcoesDisponiveis.get(direcoesDisponiveis.size() - 1);
@@ -64,7 +64,7 @@ public enum Direction {
 		return direction;
 	}
 
-	public Direction getR(Sonda sonda) {
+	public Direction getRight(Sonda sonda) {
 		Direction direction = null;
 		if (direcoesDisponiveis.indexOf(this) + 1 == direcoesDisponiveis.size()) {
 			direction = direcoesDisponiveis.get(0);

@@ -1,11 +1,11 @@
-package com.cristiano.request;
+package com.cristiano.vo;
 
 import java.util.List;
 
 import com.cristiano.domain.Command;
 import com.cristiano.domain.Direction;
 
-public class SondaRequest {
+public class SondaVO {
 
 	private int horizontal;
 	private int vertical;

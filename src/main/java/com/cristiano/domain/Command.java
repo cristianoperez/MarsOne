@@ -17,7 +17,7 @@ public enum Command {
 	M {
 		@Override
 		public Sonda executar(Sonda sonda) {
-			return sonda.move(sonda.getMalha());
+			return sonda.move();
 		}
 	};
 

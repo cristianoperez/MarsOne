@@ -45,31 +45,31 @@ public class SondaTest {
 	@Test(expected = InvalidPositionException.class)
 	public void moveEToInvalidPosition() {
 		Sonda sonda = Sonda.land(malha, H, V, Direction.E);
-		sonda.move(malha);
+		sonda.move();
 	}
 
 	@Test(expected = InvalidPositionException.class)
 	public void moveNToInvalidPosition() {
 		Sonda sonda = Sonda.land(malha, H, V, Direction.N);
-		sonda.move(malha);
+		sonda.move();
 	}
 
 	@Test(expected = InvalidPositionException.class)
 	public void moveWToInvalidPosition() {
 		Sonda sonda = Sonda.land(malha, 0, 0, Direction.W);
-		sonda.move(malha);
+		sonda.move();
 	}
 
 	@Test(expected = InvalidPositionException.class)
 	public void moveSToInvalidPosition() {
 		Sonda sonda = Sonda.land(malha, 0, 0, Direction.S);
-		sonda.move(malha);
+		sonda.move();
 	}
 
 	@Test
 	public void moveNtoValidPosition() {
 		Sonda sonda = Sonda.land(malha, H, 9, Direction.N);
-		sonda = sonda.move(malha);
+		sonda = sonda.move();
 
 		assertEquals(10, sonda.getVertical());
 	}
@@ -77,7 +77,7 @@ public class SondaTest {
 	@Test
 	public void moveStoValidPosition() {
 		Sonda sonda = Sonda.land(malha, H, V, Direction.S);
-		sonda = sonda.move(malha);
+		sonda = sonda.move();
 
 		assertEquals(9, sonda.getVertical());
 	}
@@ -85,7 +85,7 @@ public class SondaTest {
 	@Test
 	public void moveEtoValidPosition() {
 		Sonda sonda = Sonda.land(malha, 9, V, Direction.E);
-		sonda = sonda.move(malha);
+		sonda = sonda.move();
 
 		assertEquals(10, sonda.getHorizontal());
 	}
@@ -93,7 +93,7 @@ public class SondaTest {
 	@Test
 	public void moveWtoValidPosition() {
 		Sonda sonda = Sonda.land(malha, H, V, Direction.W);
-		sonda = sonda.move(malha);
+		sonda = sonda.move();
 
 		assertEquals(9, sonda.getHorizontal());
 	}
