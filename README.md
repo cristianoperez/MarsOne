@@ -46,4 +46,4 @@ br.com.cristiano.app.Application
  },
  ...]
  ```
- * Exemplo: http://localhost:8080/5/5/[{horizontal: 1,vertical: 2, direction: N, commands: [L,M,L,M,L,M,L,M,M] }]
+ * Exemplo: http://localhost:8080/deploy/5/5/[{horizontal: 1,vertical: 2, direction: N, commands: [L,M,L,M,L,M,L,M,M] }]
