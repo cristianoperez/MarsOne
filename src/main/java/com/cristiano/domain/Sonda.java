@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.cristiano.exception.InvalidPositionException;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)
 public final class Sonda {
@@ -35,6 +37,7 @@ public final class Sonda {
 	 * @return {@link Sonda}
 	 */
 	public static Sonda land(Malha malha, int horizontal, int vertical, Direction apontadaPara) {
+		isValidPosition(malha, horizontal, vertical);
 		return new Sonda(malha, horizontal, vertical, apontadaPara);
 	}
 
@@ -84,6 +87,7 @@ public final class Sonda {
 	 * @return {@link Sonda}
 	 */
 	public Sonda moveTo(int horizontal, int vertical) {
+		isValidPosition(malha, horizontal, vertical);
 		return new Sonda(malha, horizontal, vertical, direction);
 	}
 
@@ -105,6 +109,15 @@ public final class Sonda {
 
 	public Direction getDirection() {
 		return direction;
+	}
+	
+	private static void isValidPosition(Malha malha, int posH, int posV){
+		if(posH > malha.getHorizontal() || posH < 0){
+			throw new InvalidPositionException("Não existe na malha a posição HORIZONTAL: " + posH);
+		}
+		if(posV > malha.getVertical() || posV < 0){
+			throw new InvalidPositionException("Não existe na malha a posição HORIZONTAL: " + posV);
+		}
 	}
 
 }

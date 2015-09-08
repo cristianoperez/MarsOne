@@ -38,8 +38,9 @@ public class SondaTest {
 		assertEquals(DIR, sonda.getDirection());
 	}
 
+	@Test(expected = InvalidPositionException.class)
 	public void invalidLandPosition() {
-
+		Sonda.land(malha, 10, 100, DIR);
 	}
 
 	@Test(expected = InvalidPositionException.class)
@@ -103,5 +104,11 @@ public class SondaTest {
 		Sonda sonda = Sonda.land(malha, H, V, Direction.W);
 		Command command = Command.M;
 		command.executar(sonda);
+	}
+	
+	@Test(expected = InvalidPositionException.class)
+	public void moveToInvalidPosition(){
+		Sonda sonda = Sonda.land(malha, H, V, Direction.W);
+		sonda.moveTo(10, 11);
 	}
 }
