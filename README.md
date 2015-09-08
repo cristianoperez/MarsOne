@@ -1,11 +1,11 @@
 # MarsOne
 
-## InstalaÁ„o
-Porta padr„o: 8080
+## Instala√ß√£o
+Porta padr√£o: 8080
 ### Jar
 Utilizando o JAR que se encontra na raiz do projeto execute o comando
 
-java -jar 'PATH'/Frete.jar
+java -jar 'PATH'/Mars.jar
 
 ### Maven
 mvn spring-boot:run
@@ -28,7 +28,7 @@ mvn spring-boot:run
 
  > malhaV (int): Tamanho Vertival da manha
  
- > sonda (String): Json array que contem as informaÁıes da sonda e os comandos, no seguinte formato.
+ > sonda (String): Json array que contem as informa√ß√µes da sonda e os comandos, no seguinte formato.
     
     * commands: L, M, R
     * direction: N, S, E, W
