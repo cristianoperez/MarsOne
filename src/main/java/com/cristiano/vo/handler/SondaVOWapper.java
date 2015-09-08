@@ -2,10 +2,8 @@ package com.cristiano.vo.handler;
 
 import java.util.Arrays;
 
-import com.cristiano.domain.Command;
 import com.cristiano.gson.adapter.TypeCaseSensitiveEnumAdapter;
 import com.cristiano.vo.SondaVO;
-import com.fasterxml.jackson.databind.AnnotationIntrospector.ReferenceProperty.Type;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

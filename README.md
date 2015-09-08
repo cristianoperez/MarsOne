@@ -21,7 +21,7 @@ mvn spring-boot:run
 
 ## Endpoints
 
- * Path: "/deploy"
+ * Path: "/deploy/{malhaH}/{malhaV}/{sonda}"
  * Method: GET
  * Parametros: /'malhaH'/'malhaV'/'sonda'
  > malhaH (int): Tamanho Horizontal da malha

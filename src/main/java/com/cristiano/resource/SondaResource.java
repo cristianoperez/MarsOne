@@ -16,7 +16,7 @@ import com.cristiano.domain.Sonda;
 import com.cristiano.vo.SondaVO;
 import com.cristiano.vo.handler.SondaVOWapper;
 
-@Path("/{malhaH}/{malhaV}/{sonda}")
+@Path("/deploy/{malhaH}/{malhaV}/{sonda}")
 public class SondaResource {
 
 	@GET
