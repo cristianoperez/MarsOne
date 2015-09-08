@@ -10,6 +10,11 @@ java -jar 'PATH'/Mars.jar
 ### Maven
 mvn spring-boot:run
 
+###IDE
+Importe o projeto e rode a classe
+
+br.com.cristiano.app.Application
+
 ## Ferramentas
 * Java
 * Spring boot
