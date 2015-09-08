@@ -2,8 +2,12 @@ package com.cristiano.vo.handler;
 
 import java.util.Arrays;
 
+import com.cristiano.domain.Command;
+import com.cristiano.gson.adapter.TypeCaseSensitiveEnumAdapter;
 import com.cristiano.vo.SondaVO;
+import com.fasterxml.jackson.databind.AnnotationIntrospector.ReferenceProperty.Type;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class SondaVOWapper extends AbstractListHandler<SondaVO> {
 
@@ -15,7 +19,9 @@ public class SondaVOWapper extends AbstractListHandler<SondaVO> {
 	public void parse(String json) {
 		setOriginalValue(json);
 		
-		Gson gson = new Gson();
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapterFactory(new TypeCaseSensitiveEnumAdapter());
+		Gson gson = gsonBuilder.create();
 		SondaVO[] arr = gson.fromJson(json, SondaVO[].class);
 		setValue(Arrays.asList(arr));
 	}

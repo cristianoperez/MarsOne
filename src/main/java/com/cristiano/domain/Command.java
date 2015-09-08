@@ -1,5 +1,6 @@
 package com.cristiano.domain;
 
+
 public enum Command {
 
 	L {
