@@ -1,26 +1,26 @@
 package com.cristiano.domain;
 
-
 public enum Command {
 
 	L {
 		@Override
-		public Sonda executar(Sonda sonda) {
-			return sonda.changeDirection(sonda.getLeftDirection());
+		public void execute(CorpoEspacial corpo) {
+			corpo.turnLeft();
 		}
 	},
 	R {
 		@Override
-		public Sonda executar(Sonda sonda) {
-			return sonda.changeDirection(sonda.getRightDirection());
+		public void execute(CorpoEspacial corpo) {
+			corpo.turnRight();
 		}
 	},
 	M {
 		@Override
-		public Sonda executar(Sonda sonda) {
-			return sonda.move();
+		public void execute(CorpoEspacial corpo) {
+			corpo.move();
 		}
 	};
 
-	public abstract Sonda executar(Sonda sonda);
+	public abstract void execute(CorpoEspacial corpo);
+	
 }

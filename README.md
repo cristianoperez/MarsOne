@@ -3,7 +3,6 @@
 ## Instalação
 Porta padrão: 8080
 ### Jar
-Utilizando o JAR que se encontra na raiz do projeto execute o comando
 
 java -jar 'PATH'/Mars.jar
 

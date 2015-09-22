@@ -4,12 +4,7 @@ import java.util.List;
 
 import com.cristiano.domain.Command;
 import com.cristiano.domain.Direction;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(value = Include.NON_NULL)
 public class SondaVO {
 
 	private int horizontal;

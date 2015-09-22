@@ -2,59 +2,44 @@ package com.cristiano.domain;
 
 import java.util.List;
 
-import com.cristiano.exception.InvalidPositionException;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
 public enum Direction {
 	N {
 		@Override
-		public Sonda move(Sonda sonda) throws InvalidPositionException {
-			int horizontal = sonda.getHorizontal();
-			int vertical = sonda.getVertical() + 1;
-			if (vertical > sonda.getMalhaVerticalSize()) {
-				throw new InvalidPositionException(new StringBuilder("Posição HORIZONTAL inválida, posição ").append(vertical).append(" não existe na malha").toString());
-			}
-			return sonda.moveTo(horizontal, vertical);
+		public Posicao move(Posicao posicao) {
+			int horizontal = posicao.getX();
+			int vertical = posicao.getY() + 1;
+			return Posicao.fixPosition(horizontal, vertical);
 		}
 	},
 	S {
 		@Override
-		public Sonda move(Sonda sonda) throws InvalidPositionException {
-			int horizontal = sonda.getHorizontal();
-			int vertical = sonda.getVertical() - 1;
-			if(vertical < 0){
-				throw new InvalidPositionException(new StringBuilder("Posição HORIZONTAL inválida, posição ").append(vertical).append(" não existe na malha").toString());
-			}
-			return sonda.moveTo(horizontal, vertical);
+		public Posicao move(Posicao posicao) {
+			int horizontal = posicao.getX();
+			int vertical = posicao.getY() - 1;
+			return Posicao.fixPosition(horizontal, vertical);
 		}
 	},
 	E {
 		@Override
-		public Sonda move(Sonda sonda) throws InvalidPositionException {
-			int horizontal = sonda.getHorizontal() + 1;
-			int vertical = sonda.getVertical();
-			if(horizontal > sonda.getMalhaHorizontalSize()){
-				throw new InvalidPositionException(new StringBuilder("Posição VERTICAL inválida, posição ").append(horizontal).append(" não existe na malha").toString());
-			}
-			
-			return sonda.moveTo(horizontal, vertical);
+		public Posicao move(Posicao posicao) {
+			int horizontal = posicao.getX() + 1;
+			int vertical = posicao.getY();
+			return Posicao.fixPosition(horizontal, vertical);
 		}
 	},
 	W {
 		@Override
-		public Sonda move(Sonda sonda) throws InvalidPositionException {
-			int horizontal = sonda.getHorizontal() - 1;
-			int vertical = sonda.getVertical();
-			if(horizontal < 0){
-				throw new InvalidPositionException(new StringBuilder("Posição VERTICAL inválida, posição ").append(horizontal).append(" não existe na malha").toString());
-			}
-			
-			return sonda.moveTo(horizontal, vertical);
+		public Posicao move(Posicao posicao) {
+			int horizontal = posicao.getX() - 1;
+			int vertical = posicao.getY();
+			return Posicao.fixPosition(horizontal, vertical);
 		}
 	};
 
-	public Direction getLeft(Sonda sonda) {
+	public Direction getLeft() {
 		Direction direction = null;
 		if (direcoesDisponiveis.indexOf(this) - 1 == -1) {
 			direction = direcoesDisponiveis.get(direcoesDisponiveis.size() - 1);
@@ -64,7 +49,7 @@ public enum Direction {
 		return direction;
 	}
 
-	public Direction getRight(Sonda sonda) {
+	public Direction getRight() {
 		Direction direction = null;
 		if (direcoesDisponiveis.indexOf(this) + 1 == direcoesDisponiveis.size()) {
 			direction = direcoesDisponiveis.get(0);
@@ -74,8 +59,8 @@ public enum Direction {
 		return direction;
 	}
 
-	public abstract Sonda move(Sonda sonda) throws InvalidPositionException;
-
+	public abstract Posicao move(Posicao posicao);
+		
 	private static List<Direction> direcoesDisponiveis;
 
 	static {
@@ -85,5 +70,9 @@ public enum Direction {
 		builder.add(Direction.S);
 		builder.add(Direction.W);
 		direcoesDisponiveis = builder.build();
+	}
+	
+	public static List<Direction> getDirecoesDisponiveis() {
+		return direcoesDisponiveis;
 	}
 }

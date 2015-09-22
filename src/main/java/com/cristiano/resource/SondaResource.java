@@ -11,7 +11,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.cristiano.domain.Command;
+import com.cristiano.domain.CorpoEspacial;
 import com.cristiano.domain.Malha;
+import com.cristiano.domain.Posicao;
 import com.cristiano.domain.Sonda;
 import com.cristiano.vo.SondaVO;
 import com.cristiano.vo.handler.SondaVOWapper;
@@ -25,13 +27,15 @@ public class SondaResource {
 			@PathParam("malhaH") int h,
 			@PathParam("malhaV") int v,
 			@PathParam("sonda") SondaVOWapper sondaParam){
-		List<Sonda> resultList = new ArrayList<>();
+		List<CorpoEspacial> resultList = new ArrayList<>();
 		
-		Malha malha = Malha.build(h, v);
+		Posicao posicao = Posicao.fixPosition(h, v);
+		Malha malha = Malha.build(posicao);
 		for(SondaVO s : sondaParam.getValue()){
-			Sonda sonda = Sonda.land(malha, s.getHorizontal(), s.getVertical(), s.getDirection());
+			Posicao pos = Posicao.fixPosition(s.getHorizontal(), s.getVertical());
+			Sonda sonda = Sonda.land(malha, pos, s.getDirection());
 			for(Command command : s.getCommands()){
-				sonda = command.executar(sonda);
+				command.execute(sonda);
 			}
 			resultList.add(sonda);
 		}

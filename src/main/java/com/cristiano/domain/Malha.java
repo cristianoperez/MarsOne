@@ -2,24 +2,30 @@ package com.cristiano.domain;
 
 public final class Malha {
 
-	private final int horizontal;
-	private final int vertical;
+	private Posicao topRight;
+	private Posicao bottomLeft;
 
-	private Malha(int horizontal, int vertical) {
-		this.horizontal = horizontal;
-		this.vertical = vertical;
+	private Malha(Posicao topRight) {
+		this.topRight = topRight;
+		this.bottomLeft = Posicao.fixPosition(0, 0);
 	}
 
-	public static Malha build(int horizontal, int vertical) {
-		return new Malha(horizontal, vertical);
+	public boolean contains(Posicao outra) {
+		if ((outra.getX() <= topRight.getX() && outra.getY() <= topRight.getY()) && (outra.getX() >= bottomLeft.getX() && outra.getY() >= bottomLeft.getY())) {
+			return true;
+		}
+		return false;
 	}
 
-	public int getHorizontal() {
-		return horizontal;
+	public static Malha build(Posicao topRight) {
+		return new Malha(topRight);
 	}
-
-	public int getVertical() {
-		return vertical;
+	
+	public Posicao getTopRight() {
+		return topRight;
 	}
-
+	
+	public Posicao getBottomLeft() {
+		return bottomLeft;
+	}
 }
